@@ -1,0 +1,33 @@
+.btn-hour {
+  color: #202020;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  margin: 10px 0px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.btn-hour:hover {
+  background-color: #424242;
+  color: white;
+}
+
+.btn-active {
+  padding: 10px;
+  border: 1px solid gray;
+  background-color: gray;
+  color: white;
+  width: 50%;
+}
+
+.btn-confirm {
+  padding: 10px;
+  margin-left: 1px;
+  border: 1px solid gray;
+  background-color: white;
+  width: 49%;
+  cursor: pointer;
+}
