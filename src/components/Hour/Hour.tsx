@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { HourContext } from "../../hourContext";
+import HourContext from "../../HourContext";
 export const Hour = ({
   hour,
   active,
@@ -9,19 +9,16 @@ export const Hour = ({
   active: boolean;
   toggleActive: (hour: string) => void;
 }) => {
-  const data = useContext(HourContext);
+
+  const { changeHour } = useContext(HourContext)
 
   function selectHour(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    console.log(e.currentTarget.value);
     toggleActive(hour);
   }
 
-  function confirmHour(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    // useHourUpdate(hour);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    if (data?.changeHour) {
-      data?.changeHour(hour);
+  function confirmHour(e: React.MouseEvent<HTMLButtonElement>) {
+    if (changeHour) {
+      changeHour(hour)
     }
   }
 

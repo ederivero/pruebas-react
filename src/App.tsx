@@ -4,7 +4,7 @@ import "./App.css";
 import { Calendar } from "./components/Calendar/Calendar";
 import { Description } from "./components/Description/Description";
 import { Hours } from "./components/Hours/Hours";
-import { HourContext, HourProvider } from "./hourContext";
+import { HourProvider } from "./HourProvider";
 
 interface IData {
   kind: string;
@@ -27,7 +27,7 @@ function App() {
   const [data, setData] = useState<IData>();
   const [day, setDay] = useState<Date>();
 
-  const { hour } = useContext(HourContext);
+  // const { hour } = useContext(HourContext);
 
   const [description, setDescription] = useState({
     title: "",
@@ -106,13 +106,8 @@ function App() {
     });
   }, [day]);
 
-  useEffect(() => {
-    console.log(hour);
-  }, [hour]);
-
   return (
     <HourProvider>
-      {hour ? "hay hora" : "no hay hora"}
       <div className="App">
         <div className="description">
           <Description
