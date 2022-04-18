@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import HourContext from "../../HourContext";
+import React from "react";
 import "./Description.css";
 interface DescriptionProps {
   title: string;
@@ -11,10 +10,7 @@ export const Description = ({
   duration,
   title,
 }: DescriptionProps) => {
-
-  const { hour } = useContext(HourContext)
-
-  console.log(hour)
+  // const { hour } = useContext(HourContext);
 
   return (
     <div>

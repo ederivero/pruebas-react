@@ -1,22 +1,34 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useContext } from "react";
 import { CalendarTileProperties } from "react-calendar";
 import ReactCalendar from "react-calendar";
 import "./Calendar.css";
+import { HourContext } from "../../hourContext";
 
 export const Calendar = ({
   setDay,
 }: {
   setDay: Dispatch<SetStateAction<Date | undefined>>;
 }) => {
+  const { changeDate } = useContext(HourContext);
+
   function offWeekend(e: CalendarTileProperties) {
     return e.date.getDay() === 0 || e.date.getDay() === 6;
   }
+
+  function setValue(date: Date) {
+    setDay(date);
+
+    if (changeDate) {
+      changeDate(date.toString());
+    }
+  }
+
   return (
     <div>
       <ReactCalendar
         minDetail="month"
         calendarType="US"
-        onChange={setDay}
+        onChange={setValue}
         minDate={new Date()}
         maxDate={
           new Date(

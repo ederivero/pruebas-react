@@ -80,7 +80,7 @@ export const Hours = ({
     ];
 
     setDateText(
-      `${days[day.getDay()]}, ${months[day.getMonth()]} ${day.getDate()}`
+      `${days[day.getDay() - 1]}, ${months[day.getMonth()]} ${day.getDate()}`
     );
   }, [day]);
 
